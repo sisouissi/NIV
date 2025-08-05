@@ -1,13 +1,13 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { Sidebar } from './components/Sidebar';
-import { ContentArea } from './components/ContentArea';
-import { SectionId } from './types';
-import { AbbreviationsModal } from './components/AbbreviationsModal';
-import { ReferencesModal } from './components/ReferencesModal';
-import { FloatingActionButton } from './components/FloatingActionButton';
-import { ExpertChatModal } from './components/ExpertChatModal';
+import { Sidebar } from './components/Sidebar.tsx';
+import { ContentArea } from './components/ContentArea.tsx';
+import { SectionId } from './types.ts';
+import { AbbreviationsModal } from './components/AbbreviationsModal.tsx';
+import { ReferencesModal } from './components/ReferencesModal.tsx';
+import { FloatingActionButton } from './components/FloatingActionButton.tsx';
+import { ExpertChatModal } from './components/ExpertChatModal.tsx';
 
 // Configuration de l'essai
 const TRIAL_DURATION_DAYS = 5;

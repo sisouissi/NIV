@@ -1,6 +1,6 @@
 import React from 'react';
-import { Home, Lungs, ListChecks, Activity, Wrench, TrendingDown, BrainCircuit, Wind, TrendingUp, Users, AlertTriangle, User, BookOpen, Siren, ClipboardList, Moon, Child, Shield, PlusCircle, Heart, ShieldCheck, FileMedical, Bot, SlidersHorizontal, MessageSquareText } from './components/icons';
-import { MenuItem } from './types';
+import { Home, Lungs, ListChecks, Activity, Wrench, TrendingDown, BrainCircuit, Wind, TrendingUp, Users, AlertTriangle, User, BookOpen, Siren, ClipboardList, Moon, Child, Shield, PlusCircle, Heart, ShieldCheck, FileMedical, Bot, SlidersHorizontal, MessageSquareText } from './components/icons/index.ts';
+import { MenuItem } from './types.ts';
 
 export const MENU_ITEMS: MenuItem[] = [
   { id: 'welcome', title: 'Accueil', icon: Home },
