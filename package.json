@@ -1,0 +1,7 @@
+{
+  "name": "vni-guide-gemini-api",
+  "version": "1.0.0",
+  "dependencies": {
+    "@google/genai": "^1.12.0"
+  }
+}
