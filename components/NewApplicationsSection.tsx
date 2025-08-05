@@ -1,6 +1,6 @@
 import React from 'react';
-import { TrendingUp, Activity, Home, AlertTriangle } from './icons';
-import { Accordion } from './Accordion';
+import { TrendingUp, Activity, Home, AlertTriangle } from './icons/index.ts';
+import { Accordion } from './Accordion.tsx';
 
 const InfoCard: React.FC<{ title: string; children: React.ReactNode; icon: React.ReactNode; }> = ({ title, children, icon }) => (
     <div className="bg-slate-50 border border-slate-200 rounded-lg p-4 h-full">

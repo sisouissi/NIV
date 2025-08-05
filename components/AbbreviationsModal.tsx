@@ -1,8 +1,8 @@
 
 
 import React from 'react';
-import { Modal } from './Modal';
-import { abbreviations } from '../data/abbreviations';
+import { Modal } from './Modal.tsx';
+import { abbreviations } from '../data/abbreviations.ts';
 
 interface AbbreviationsModalProps {
   onClose: () => void;

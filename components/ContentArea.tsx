@@ -1,32 +1,32 @@
 
 
 import React from 'react';
-import { SectionId } from '../types';
-import { Footer } from './Footer';
+import { SectionId } from '../types.ts';
+import { Footer } from './Footer.tsx';
 
-import WelcomeScreen from './WelcomeScreen';
-import { DefinitionSection } from './DefinitionSection';
-import { IndicationsSection } from './IndicationsSection';
-import { VentilateursModesSection } from './VentilateursModesSection';
-import { TechnologieSection } from './TechnologieSection';
-import { MiseEnPlaceSection } from './MiseEnPlaceSection';
-import { ComplicationsSection } from './ComplicationsSection';
-import { SevrageSection } from './SevrageSection';
-import { NewApplicationsSection } from './NewApplicationsSection';
-import { InterfacesSection } from './InterfacesSection';
-import { CompensationFuitesSection } from './CompensationFuitesSection';
-import { RecommandationsGAVO2Section } from './RecommandationsGAVO2Section';
-import { VniAigueSection } from './VniAigueSection';
-import { VniBpcoSection } from './VniBpcoSection';
-import { VniNmdSection } from './VniNmdSection';
-import { VniTosSection } from './VniTosSection';
-import { VniPediatriqueSection } from './VniPediatriqueSection';
-import { GuidelinesSection } from './GuidelinesSection';
-import { OapSection } from './OapSection';
-import { PostExtubationSection } from './PostExtubationSection';
-import { PostOperatoireSection } from './PostOperatoireSection';
-import { ClinicalCaseSimulator } from './ClinicalCaseSimulator';
-import { SettingsLab } from './SettingsLab';
+import WelcomeScreen from './WelcomeScreen.tsx';
+import { DefinitionSection } from './DefinitionSection.tsx';
+import { IndicationsSection } from './IndicationsSection.tsx';
+import { VentilateursModesSection } from './VentilateursModesSection.tsx';
+import { TechnologieSection } from './TechnologieSection.tsx';
+import { MiseEnPlaceSection } from './MiseEnPlaceSection.tsx';
+import { ComplicationsSection } from './ComplicationsSection.tsx';
+import { SevrageSection } from './SevrageSection.tsx';
+import { NewApplicationsSection } from './NewApplicationsSection.tsx';
+import { InterfacesSection } from './InterfacesSection.tsx';
+import { CompensationFuitesSection } from './CompensationFuitesSection.tsx';
+import { RecommandationsGAVO2Section } from './RecommandationsGAVO2Section.tsx';
+import { VniAigueSection } from './VniAigueSection.tsx';
+import { VniBpcoSection } from './VniBpcoSection.tsx';
+import { VniNmdSection } from './VniNmdSection.tsx';
+import { VniTosSection } from './VniTosSection.tsx';
+import { VniPediatriqueSection } from './VniPediatriqueSection.tsx';
+import { GuidelinesSection } from './GuidelinesSection.tsx';
+import { OapSection } from './OapSection.tsx';
+import { PostExtubationSection } from './PostExtubationSection.tsx';
+import { PostOperatoireSection } from './PostOperatoireSection.tsx';
+import { ClinicalCaseSimulator } from './ClinicalCaseSimulator.tsx';
+import { SettingsLab } from './SettingsLab.tsx';
 
 
 interface ContentAreaProps {

@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import { AlertTriangle, Lungs } from './icons';
+import { AlertTriangle, Lungs } from './icons/index.ts';
 
 export const WelcomeScreen: React.FC = () => {
   return (

@@ -1,7 +1,8 @@
 
+
 import React from 'react';
-import { Activity, Users, Wind, Heart, Target, ListChecks, AlertTriangle } from './icons';
-import { Accordion } from './Accordion';
+import { Activity, Users, Wind, Heart, Target, ListChecks, AlertTriangle } from './icons/index.ts';
+import { Accordion } from './Accordion.tsx';
 
 export const MiseEnPlaceSection: React.FC = () => (
   <div className="space-y-8 animate-fade-in">

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Wrench, Wind, Activity, Shield, ListChecks } from './icons';
-import { Accordion } from './Accordion';
+import { Wrench, Wind, Activity, Shield, ListChecks } from './icons/index.ts';
+import { Accordion } from './Accordion.tsx';
 
 export const TechnologieSection: React.FC = () => {
   return (

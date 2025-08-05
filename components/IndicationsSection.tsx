@@ -1,8 +1,9 @@
 
+
 import React from 'react';
-import { SectionId } from '../types';
-import { ListChecks, CheckCircle, XCircle, AlertTriangle, Shield, Heart, Lungs, ShieldX, Users, BookOpen, SlidersHorizontal, ChevronRight, Activity, Calculator, Wrench } from './icons';
-import { Accordion } from './Accordion';
+import { SectionId } from '../types.ts';
+import { ListChecks, CheckCircle, XCircle, AlertTriangle, Shield, Heart, Lungs, ShieldX, Users, BookOpen, SlidersHorizontal, ChevronRight, Activity, Calculator, Wrench } from './icons/index.ts';
+import { Accordion } from './Accordion.tsx';
 
 interface IndicationsSectionProps {
   setActiveSection: (section: SectionId) => void;

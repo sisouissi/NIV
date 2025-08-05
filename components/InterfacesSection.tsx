@@ -1,6 +1,6 @@
 import React from 'react';
-import { User, Wind, Wrench, CheckCircle, AlertTriangle, XCircle, Shield } from './icons';
-import { Accordion } from './Accordion';
+import { User, Wind, Wrench, CheckCircle, AlertTriangle, XCircle, Shield } from './icons/index.ts';
+import { Accordion } from './Accordion.tsx';
 
 const InterfaceCard: React.FC<{
     title: string;

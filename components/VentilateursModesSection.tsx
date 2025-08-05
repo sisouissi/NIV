@@ -1,7 +1,7 @@
 import React from 'react';
-import { Wind, BookOpen, Activity, Wrench, CheckCircle, XCircle, PlayCircle } from './icons';
-import { Accordion } from './Accordion';
-import { VentilationModesAnimation } from './animations/VentilationModesAnimation';
+import { Wind, BookOpen, Activity, Wrench, CheckCircle, XCircle, PlayCircle } from './icons/index.ts';
+import { Accordion } from './Accordion.tsx';
+import { VentilationModesAnimation } from './animations/VentilationModesAnimation.tsx';
 
 const VentilatorCard: React.FC<{
     title: string;

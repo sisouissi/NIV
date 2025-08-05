@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquareText } from './icons';
+import { MessageSquareText } from './icons/index.ts';
 
 interface FloatingActionButtonProps {
   onClick: () => void;

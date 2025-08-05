@@ -1,8 +1,9 @@
 
+
 import React from 'react';
-import { TrendingDown, CheckCircle, AlertTriangle, Target, Activity, ListChecks, Calculator, Home, Heart, Users } from './icons';
-import { Accordion } from './Accordion';
-import { HacorScoreCalculator } from './HacorScoreCalculator';
+import { TrendingDown, CheckCircle, AlertTriangle, Target, Activity, ListChecks, Calculator, Home, Heart, Users } from './icons/index.ts';
+import { Accordion } from './Accordion.tsx';
+import { HacorScoreCalculator } from './HacorScoreCalculator.tsx';
 
 const CriteriaList: React.FC<{ title: string, criteria: string[], icon: React.ReactNode }> = ({ title, criteria, icon }) => (
     <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 h-full">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronUp } from './icons/ChevronUp';
+import { ChevronUp } from './icons/ChevronUp.tsx';
 
 interface AccordionProps {
   title: string;

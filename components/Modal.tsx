@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { XCircle } from './icons';
+import { XCircle } from './icons/index.ts';
 
 interface ModalProps {
   isOpen: boolean;

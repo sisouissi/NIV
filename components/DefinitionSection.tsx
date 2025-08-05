@@ -1,7 +1,7 @@
 import React from 'react';
-import { Lungs, CheckCircle, Users, Wind, Heart, BrainCircuit, TrendingUp, ShieldX, Target, AlertTriangle, TrendingDown, BookOpen, PlayCircle } from './icons';
-import { Accordion } from './Accordion';
-import { AutoPeepAnimation } from './animations/AutoPeepAnimation';
+import { Lungs, CheckCircle, Users, Wind, Heart, BrainCircuit, TrendingUp, ShieldX, Target, AlertTriangle, TrendingDown, BookOpen, PlayCircle } from './icons/index.ts';
+import { Accordion } from './Accordion.tsx';
+import { AutoPeepAnimation } from './animations/AutoPeepAnimation.tsx';
 
 const InfoCard: React.FC<{ 
   title: string; 

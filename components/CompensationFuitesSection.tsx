@@ -1,8 +1,9 @@
 
+
 import React from 'react';
-import { Wrench, AlertTriangle, CheckCircle, Activity, PlayCircle } from './icons';
-import { Accordion } from './Accordion';
-import { AsynchronyAnimation } from './animations/AsynchronyAnimation';
+import { Wrench, AlertTriangle, CheckCircle, Activity, PlayCircle } from './icons/index.ts';
+import { Accordion } from './Accordion.tsx';
+import { AsynchronyAnimation } from './animations/AsynchronyAnimation.tsx';
 
 export const CompensationFuitesSection: React.FC = () => (
     <div className="space-y-8 animate-fade-in">

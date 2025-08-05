@@ -1,7 +1,7 @@
 import React from 'react';
-import { Modal } from './Modal';
-import { references, Reference } from '../data/references';
-import { ExternalLink } from './icons';
+import { Modal } from './Modal.tsx';
+import { references, Reference } from '../data/references.ts';
+import { ExternalLink } from './icons/index.ts';
 
 interface ReferencesModalProps {
   onClose: () => void;

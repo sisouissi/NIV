@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { SectionId, MenuItem } from '../types';
-import { MENU_ITEMS } from '../constants';
-import { ChevronRight, BookOpen, ExternalLink } from './icons';
+import { SectionId, MenuItem } from '../types.ts';
+import { MENU_ITEMS } from '../constants.tsx';
+import { ChevronRight, BookOpen, ExternalLink } from './icons/index.ts';
 
 interface SidebarProps {
   activeSection: SectionId;

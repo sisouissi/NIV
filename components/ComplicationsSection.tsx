@@ -1,7 +1,8 @@
 
+
 import React from 'react';
-import { Wrench, Wind, AlertTriangle, Heart, UserX } from './icons';
-import { Accordion } from './Accordion';
+import { Wrench, Wind, AlertTriangle, Heart, UserX } from './icons/index.ts';
+import { Accordion } from './Accordion.tsx';
 
 const SolutionCard: React.FC<{ title: string, solutions: string[] }> = ({ title, solutions }) => (
     <div className="bg-slate-50 border border-slate-200 rounded-lg p-4 mt-2">
