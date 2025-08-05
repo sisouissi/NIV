@@ -1,36 +1,26 @@
-
-复制
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
     "module": "ESNext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
     "isolatedModules": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
+    "moduleDetection": "force",
+    "allowJs": true,
+    "jsx": "react-jsx",
     "paths": {
-      "@/*": ["src/*"]
-    }
+      "@/*": [
+        "./*"
+      ]
+    },
     "allowImportingTsExtensions": true,
-    "noEmit": true,
-    "strict": true, // Active les vérifications de type strictes
-    "esModuleInterop": true, // Active l'interopérabilité des modules ES
-    "resolveJsonModule": true // Active l'import de modules JSON
-  },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "noEmit": true
+  }
 }
