@@ -2,7 +2,13 @@ import { GoogleGenAI, Type, Chat, GenerateContentResponse } from "@google/genai"
 import { marked } from 'marked';
 
 // Assume process.env.API_KEY is configured externally
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const API_KEY = process.env.GEMINI_API_KEY || process.env.API_KEY;
+
+let genAI: GoogleGenAI | null = null;
+
+if (API_KEY) {
+  genAI = new GoogleGenAI({ apiKey: API_KEY });
+}
 
 export interface ClinicalCase {
   category: string;
@@ -13,7 +19,12 @@ export interface ClinicalCase {
   explanation: string;
 }
 
-const clinicalCaseThemes = [
+export async function generateClinicalCase(): Promise<ClinicalCase> {
+  if (!genAI) {
+    throw new Error("API key is not configured. Cannot generate clinical cases.");
+  }
+
+  const clinicalCaseThemes = [
     "Exacerbation aiguë de BPCO",
     "Œdème Aigu du Poumon Cardiogénique",
     "Syndrome Obésité-Hypoventilation en décompensation",
@@ -23,12 +34,11 @@ const clinicalCaseThemes = [
     "Gestion d'une complication de la VNI (fuites majeures, asynchronie)",
     "Décision de sevrage de la VNI",
     "Initiation de la VNI en pédiatrie"
-];
+  ];
 
-export async function generateClinicalCase(): Promise<ClinicalCase> {
   const theme = clinicalCaseThemes[Math.floor(Math.random() * clinicalCaseThemes.length)];
-  
-  const response = await ai.models.generateContent({
+
+  const response = await genAI.models.generateContent({
     model: "gemini-2.5-flash",
     contents: `Génère un cas clinique stimulant sur la VNI concernant le thème suivant : "${theme}". Le cas doit être suivi d'une question à choix multiple avec 4 options (A, B, C, D) et une explication détaillée de la bonne réponse.`,
     config: {
@@ -74,6 +84,10 @@ interface Settings {
 }
 
 export async function generateExpertAdvice(settings: Settings): Promise<string> {
+    if (!genAI) {
+      return "Désolé, le service de conseil expert n'est pas disponible actuellement. La clé API Gemini n'est pas configurée. Veuillez consulter les sections du guide pour obtenir des informations sur la VNI.";
+    }
+
     const { profile, pep, ps, rr, riseTime } = settings;
     const profileFrench = {
         normal: 'Normal',
@@ -83,21 +97,24 @@ export async function generateExpertAdvice(settings: Settings): Promise<string> 
 
     const prompt = `Analyse ces réglages de VNI pour un patient au profil '${profileFrench}' : PEP=${pep} cmH₂O, Aide Inspiratoire=${ps} cmH₂O, Fréquence=${rr}/min, Pente=${riseTime}ms. Sont-ils optimaux ? Identifie les risques (ex: auto-PEEP, inconfort) et donne un conseil concis et pédagogique. Formatte ta réponse en Markdown simple avec des titres, des listes à puces, et du gras pour une meilleure lisibilité.`;
 
-    const response = await ai.models.generateContent({
+    const response = await genAI.models.generateContent({
         model: "gemini-2.5-flash",
         contents: prompt,
         config: {
              systemInstruction: "Tu es un expert en pneumologie et un formateur clinique. Fournis une analyse experte, brève et actionnable sur les réglages de ventilation non invasive. La réponse doit être exclusivement en Français et formatée en Markdown."
         }
     });
-    
+
     return response.text.trim();
 }
 
 const CHAT_SYSTEM_INSTRUCTION = "Tu es un assistant expert en Ventilation Non Invasive (VNI), basé sur un guide clinique complet. Ton rôle est de fournir des réponses claires, précises et pédagogiques aux questions des professionnels de santé. Base tes réponses *uniquement* sur les connaissances standards et les meilleures pratiques en pneumologie concernant la VNI, comme si tu citais un guide de référence. N'invente pas d'informations et n'utilise pas de connaissances externes non validées dans ce domaine. Tes réponses doivent être exclusivement en Français. Structure impérativement tes réponses en utilisant le format Markdown simple pour une lisibilité optimale. Utilise des titres en gras de niveau 3 (### Titre) pour les rubriques principales et des listes à puces (-) pour les points clés et les énumérations. La mise en gras est importante pour souligner les termes essentiels.";
 
 export function createChatSession(): Chat {
-  const chat = ai.chats.create({
+  if (!genAI) {
+    throw new Error("API key is not configured. Cannot create chat session.");
+  }
+  const chat = genAI.chats.create({
     model: 'gemini-2.5-flash',
     config: {
       systemInstruction: CHAT_SYSTEM_INSTRUCTION,
@@ -107,5 +124,15 @@ export function createChatSession(): Chat {
 }
 
 export async function sendMessageToChatStream(chat: Chat, message: string): Promise<AsyncGenerator<GenerateContentResponse>> {
+  if (!genAI) {
+    // This case should ideally not be reached if createChatSession is called after checking genAI,
+    // but as a safeguard, we'll return an async generator that yields an error message.
+    async function* noApiGenerator(): AsyncGenerator<GenerateContentResponse> {
+      yield {
+        text: "Désolé, le service de chat expert n'est pas disponible actuellement. La clé API Gemini n'est pas configurée. Veuillez consulter les sections du guide pour obtenir des informations sur la VNI.",
+      } as GenerateContentResponse;
+    }
+    return noApiGenerator();
+  }
   return chat.sendMessageStream({ message });
 }
