@@ -15,12 +15,24 @@
     "moduleDetection": "force",
     "allowJs": true,
     "jsx": "react-jsx",
+    "baseUrl": ".", // Assure-toi que le baseUrl est défini
     "paths": {
       "@/*": [
-        "./*"
+        "src/*"
       ]
     },
     "allowImportingTsExtensions": true,
-    "noEmit": true
-  }
+    "noEmit": true,
+    "strict": true, // Active les vérifications de type strictes
+    "esModuleInterop": true, // Active l'interopérabilité des modules ES
+    "resolveJsonModule": true // Active l'import de modules JSON
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
