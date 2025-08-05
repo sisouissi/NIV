@@ -280,4 +280,52 @@ export const RecommandationsGAVO2Section: React.FC = () => {
             </Accordion>
 
             <Accordion title="Conseils n°7, 8 & 9 : Évaluation, Tolérance et Suivi" icon={<ListChecks className="w-6 h-6" />} variant="default">
-                 <p className="mb-4 text-slate-700">Juger si un malade est bien ventilé (Conseil n°
+                 <p className="mb-4 text-slate-700">Juger si un malade est bien ventilé (Conseil n°7, 8 & 9) repose sur une checklist combinant efficacité et tolérance. Cet outil interactif vous aide à faire le point.</p>
+                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                        <h4 className="font-bold text-lg text-slate-800 mb-3">Critères d'Efficacité</h4>
+                        <ul className="space-y-2 text-sm">
+                            {efficaciteItems.map(item => (
+                                <ChecklistItem
+                                    key={item.id}
+                                    item={item}
+                                    isChecked={!!checkedItems[item.id]}
+                                    onToggle={handleToggle}
+                                    colorClass={allEfficaciteChecked ? 'text-green-600' : 'text-blue-600'}
+                                />
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                        <h4 className="font-bold text-lg text-slate-800 mb-3">Critères de Tolérance</h4>
+                        <ul className="space-y-2 text-sm">
+                            {toleranceItems.map(item => (
+                                <ChecklistItem
+                                    key={item.id}
+                                    item={item}
+                                    isChecked={!!checkedItems[item.id]}
+                                    onToggle={handleToggle}
+                                    colorClass={allToleranceChecked ? 'text-green-600' : 'text-blue-600'}
+                                />
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+                 <div className={`mt-6 p-4 rounded-lg text-center transition-all ${isBienVentile ? 'bg-green-100 border-green-500' : 'bg-amber-50 border-amber-500'} border-l-4`}>
+                    <h4 className={`font-bold text-xl ${isBienVentile ? 'text-green-800' : 'text-amber-800'}`}>
+                        {isBienVentile ? '✔️ Patient bien ventilé !' : '⚠️ Objectifs non atteints'}
+                    </h4>
+                    <p className={`text-sm mt-1 ${isBienVentile ? 'text-green-700' : 'text-amber-700'}`}>
+                        {isBienVentile ? 'Tous les critères d\'efficacité et de tolérance sont remplis. Le suivi peut être poursuivi.' : 'Un ou plusieurs critères ne sont pas remplis. Une réévaluation des réglages ou de l\'interface est nécessaire.'}
+                    </p>
+                </div>
+                <div className="border-t border-slate-200 pt-3 mt-4">
+                    <h5 className="font-semibold text-sm text-slate-600 mb-2">Références</h5>
+                    <ul className="list-disc list-inside text-xs text-slate-500 space-y-1">
+                        <li>Groupe assistance ventilatoire & oxygène (GAVO2). SPLF. 2025.</li>
+                    </ul>
+                </div>
+            </Accordion>
+        </div>
+    );
+};
